@@ -2,7 +2,10 @@ import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-
+/**
+ * Create a network of cities depots and stations
+ * @author Greg Flynn
+ */
 public class Cities{
   private int vertexA, vertexB;
   private int weight;
@@ -60,7 +63,7 @@ public class Cities{
     graph.addEdge(vertexA,vertexB,weight);
   }
   
-  private boolean addNodeLocations(String fileName){
+  public boolean addNodeLocations(String fileName){
    try{
       BufferedReader reader = new BufferedReader(new FileReader(fileName));
       String line = reader.readLine();
@@ -108,15 +111,5 @@ public class Cities{
   public void solve(){
     graph.optimiseWorld();
   }
-  
-  
-  public static void main(String[] args){
-    Cities f = new Cities();  
-    f.insertFile("./testData/small-1/25-100.pyg");
-    assert(f.graph.allConnected());
-    f.addNodeLocations("./testData/small-1/easy/locations.txt");
-    f.solve();
-    
-  } 
  
 }

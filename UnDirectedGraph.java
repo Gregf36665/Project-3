@@ -100,7 +100,7 @@ public class UnDirectedGraph<K,E>{
     UnDirectedGraphNode n1 = findNode(k1);
     UnDirectedGraphNode n2 = findNode(k2);
     
-    if(n1 == null ||n2 == null) return false;
+    if(n1 == null || n2 == null) return false;
     
     // add the edges in
     n1.addEdge(n2,w);
@@ -152,12 +152,10 @@ public class UnDirectedGraph<K,E>{
   }
   
   public void displayPath(ArrayList<UnDirectedGraphNode> path){
-    System.out.print(path.get(0).getKey()+" ");
     for(UnDirectedGraphNode pathVertex : path){
         System.out.print(pathVertex.getKey()+ " ");
       }
     System.out.println(path.get(0).getDistance());
-    System.out.println();
   }
   
   public ArrayList<UnDirectedGraphNode> optimiseStation(UnDirectedGraphNode station){
