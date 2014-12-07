@@ -12,6 +12,9 @@ public class Cities{
   
   public UnDirectedGraph<Integer,String> graph;
   
+  /**
+   * Create a new network of cities
+   */
   public Cities(){
     
   }
@@ -63,6 +66,11 @@ public class Cities{
     graph.addEdge(vertexA,vertexB,weight);
   }
   
+  /**
+   * Add in a list of pumps and depots
+   * @param fileName the file name containing the list
+   * @return was the add sucsessful
+   */
   public boolean addNodeLocations(String fileName){
    try{
       BufferedReader reader = new BufferedReader(new FileReader(fileName));
@@ -103,11 +111,16 @@ public class Cities{
     graph.setNodeDepot(key,"Depot");
   }
   
-  
+  /**
+   * Display all of the cities in the map
+   */
   public void showAllCities(){
     graph.displayNodes();
   }
   
+  /**
+   * Find the optimum connection between all of the stations and depots
+   */
   public void solve(){
     graph.optimiseWorld();
   }

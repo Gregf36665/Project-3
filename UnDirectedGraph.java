@@ -152,6 +152,9 @@ public class UnDirectedGraph<K,E>{
   }
   
   public void displayPath(ArrayList<UnDirectedGraphNode> path){
+    if(path.size()==0) {
+      return;
+    }
     for(UnDirectedGraphNode pathVertex : path){
         System.out.print(pathVertex.getKey()+ " ");
       }

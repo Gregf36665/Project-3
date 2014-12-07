@@ -43,14 +43,15 @@ public class ExperimentController{
    * 
    */
   public void run(){
+    large();
+    small();
     medium();
-    
-
   }
   
   private void large(){
     for (int i=1;i<4;i++){
       System.out.println("easy Large " + i);
+      System.err.println("easy Large " + i);
       String paths = "testData/large-"+i+"/500-100000.pyg";
       String loc = "testData/large-"+i+"/easy/locations.txt";
       System.err.println(solveTime(paths,loc));
@@ -60,6 +61,7 @@ public class ExperimentController{
   private void medium(){
     for (int i=1;i<4;i++){
       System.out.println("easy Medium " + i);
+      System.err.println("easy Medium " + i);
       String paths = "testData/medium-"+i+"/100-1000.pyg";
       String loc = "testData/medium-"+i+"/easy/locations.txt";
       System.err.println(solveTime(paths,loc));
@@ -69,6 +71,7 @@ public class ExperimentController{
   private void small(){
     for (int i=1;i<4;i++){
       System.out.println("easy Small " + i);
+      System.err.println("easy Small " + i);
       String paths = "testData/small-"+i+"/25-100.pyg";
       String loc = "testData/small-"+i+"/easy/locations.txt";
       System.err.println(solveTime(paths,loc));
