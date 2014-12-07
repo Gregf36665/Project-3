@@ -145,13 +145,27 @@ public class UnDirectedGraph<K,E>{
     return true;
   }
   
-  
+  /**
+   * Solve all of the cities.  Print out to stdout
+   */
   public void optimiseWorld(){
     for(UnDirectedGraphNode pump : station)      
-      displayPath(optimiseStation(pump));
+      //displayPath(optimiseStation(pump));
+      pathLength(optimiseStation(pump));
   }
   
-  public void displayPath(ArrayList<UnDirectedGraphNode> path){
+  /**
+   * Print out just each length of the quickest route to a depot from a station
+   */
+  public void pathLength(ArrayList<UnDirectedGraphNode> path){
+    if(path.size()==0) {
+      return;
+    }
+    System.out.print(path.get(0).getKey()+" ");
+    System.out.println(path.get(0).getDistance());
+  }
+    
+  private void displayPath(ArrayList<UnDirectedGraphNode> path){
     if(path.size()==0) {
       return;
     }
@@ -161,7 +175,8 @@ public class UnDirectedGraph<K,E>{
     System.out.println(path.get(0).getDistance());
   }
   
-  public ArrayList<UnDirectedGraphNode> optimiseStation(UnDirectedGraphNode station){
+  
+  private ArrayList<UnDirectedGraphNode> optimiseStation(UnDirectedGraphNode station){
     int min = Integer.MAX_VALUE;
     ArrayList<UnDirectedGraphNode> path = new ArrayList<UnDirectedGraphNode>();
     computePath(station);
